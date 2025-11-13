@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRAIM • Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">PRAIM</div>
+      <a id="cartLink" class="btn" href="cart.html">Cart <span id="cartCount" class="cart-count">0</span></a>
+    </header>
+
+    <button class="btn" id="toggleDelivery">Add Delivery Location</button>
+
+    <section id="deliverySection" class="collapsible">
+      <table class="form-table">
+        <tr><td>Hometown:</td><td><input type="text"></td></tr>
+        <tr><td>House Number:</td><td><input type="text"></td></tr>
+        <tr><td>Villa:</td><td><input type="text"></td></tr>
+        <tr><td>Family:</td><td><input type="text"></td></tr>
+        <tr><td class="white-label">Delivery Instructions:</td><td><input type="text"></td></tr>
+      </table>
+    </section>
+
+    <div class="grid" style="margin-top:22px">
+      <a class="tile g1" href="eats.html"><div class="gtxt">Praim Eats</div></a>
+      <a class="tile g2" href="sweets.html"><div class="gtxt">Praim Sweets</div></a>
+      <a class="tile g3" href="adult.html"><div class="gtxt">Praim 18+</div></a>
+      <a class="tile g4" href="market.html"><div class="gtxt">Praim Market</div></a>
+    </div>
+
+    <div class="section-title"><strong>SALES OF THE WEEK</strong></div>
+    <a href="positano.html"><img src="images/promotion1.jpg" alt="Promotion 1"><div class="promo-caption">10% off in Positano</div></a>
+    <a href="charros.html"><img src="images/promotion2.jpg" alt="Promotion 2"><div class="promo-caption">15% in Charros Tacos!</div></a>
+  </div>
+
+  <script>
+    const btn = document.getElementById('toggleDelivery');
+    const section = document.getElementById('deliverySection');
+    btn.addEventListener('click', () => {section.style.display = section.style.display === 'block' ? 'none' : 'block';});
+  </script>
+  <!-- include cart logic -->
+  <script src="cart.js"></script>
+</body>
+</html>

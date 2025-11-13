@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRAIM • Sweets</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="index.html">← Home</a>
+      <div class="brand">Praim Sweets</div>
+      <a id="cartLink" class="btn" href="cart.html">Cart <span id="cartCount" class="cart-count">0</span></a>
+    </header>
+
+    <div class="grid">
+      <div class="tile">
+        <img src="images/sweet1.jpg" alt="">
+        <div class="txt">Sweet and Coffee</div>
+        <div class="small">$6.99</div>
+        <div class="actions"><button class="add-cart" data-addcart data-name="Sweet and Coffee" data-price="6.99" data-image="images/sweet1.jpg">Add to Cart</button></div>
+      </div>
+      <div class="tile">
+        <img src="images/sweet2.jpg" alt="">
+        <div class="txt">Keka’s Cookies</div>
+        <div class="small">$7.49</div>
+        <div class="actions"><button class="add-cart" data-addcart data-name="Keka’s Cookies" data-price="7.49" data-image="images/sweet2.jpg">Add to Cart</button></div>
+      </div>
+      <div class="tile">
+        <img src="images/sweet3.jpg" alt="">
+        <div class="txt">Cristina’s Cookies</div>
+        <div class="small">$6.49</div>
+        <div class="actions"><button class="add-cart" data-addcart data-name="Cristina’s Cookies" data-price="6.49" data-image="images/sweet3.jpg">Add to Cart</button></div>
+      </div>
+    </div>
+  </div>
+  <script src="cart.js"></script>
+</body>
+</html>

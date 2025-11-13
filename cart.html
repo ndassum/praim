@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PRAIM • Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="back" href="index.html">← Home</a>
+      <div class="brand">Cart</div>
+      <a id="cartLink" class="btn" href="cart.html">Cart <span id="cartCount" class="cart-count">0</span></a>
+    </header>
+
+    <div class="card">
+      <div id="cartEmpty" class="small">Your cart is empty.</div>
+      <div id="cartList" class="cart-list"></div>
+      <div class="actions" style="margin-top:14px">
+        <button id="placeOrder" class="btn primary">Place an Order</button>
+        <button id="clearCart" class="btn">Clear</button>
+      </div>
+      <div id="orderPlaced" class="center success" style="display:none">Order Placed!</div>
+    </div>
+  </div>
+
+  <script src="cart.js"></script>
+  <script>
+    function renderCart(){
+      const list = document.getElementById('cartList');
+      const empty = document.getElementById('cartEmpty');
+      const items = getCart();
+      list.innerHTML = '';
+      if (items.length === 0) {
+        empty.style.display = 'block';
+      } else {
+        empty.style.display = 'none';
+        items.forEach(it => {
+          const row = document.createElement('div');
+          row.className = 'cart-row';
+          row.innerHTML =
+            '<img src="' + (it.image || '') + '" alt="">' +
+            '<div><div class="cart-title">' + it.name + '</div></div>' +
+            '<div class="actions"><div class="cart-price">$' + Number(it.price).toFixed(2) + '</div></div>';
+          list.appendChild(row);
+        });
+      }
+      showCartLink();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderCart();
+
+      document.getElementById('placeOrder').addEventListener('click', () => {
+        const items = getCart();
+        if (items.length === 0) return;
+        document.getElementById('orderPlaced').style.display = 'block';
+        saveCart([]);
+        renderCart();
+      });
+
+      document.getElementById('clearCart').addEventListener('click', () => {
+        saveCart([]);
+        document.getElementById('orderPlaced').style.display = 'none';
+        renderCart();
+      });
+    });
+  </script>
+</body>
+</html>
